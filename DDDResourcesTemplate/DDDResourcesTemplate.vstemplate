@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>DDDResourcesTemplate</Name>
+    <Description>DDDResourcesTemplate</Description>
+    <Icon>DDDResourcesTemplate.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>csharp</LanguageTag>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>72243492-121e-45ae-8f05-cdef61ad8594</TemplateID>
+    <DefaultName>Class.cs</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem TargetFileName="$basename$.cs" ReplaceParameters="true" >DomainModel.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="I$basename$Repository.cs" ReplaceParameters="true">IModelRepository.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Repository.cs" ReplaceParameters="true">ModelRepository.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Service.cs" ReplaceParameters="true">ModelService.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="I$basename$Service.cs" ReplaceParameters="true">IModelService.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>
