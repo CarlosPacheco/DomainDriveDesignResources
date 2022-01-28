@@ -52,10 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DomainModel.cs" />
-    <None Include="IModelRepository.cs" />
+    <None Include="EntityModel.cs" />
+    <None Include="IModelBlo.cs" />
+    <None Include="IModelBlo.Listings.cs" />
+    <None Include="IModelController.cs" />
+    <None Include="IModelDao.cs" />
+    <None Include="IModelDao.Listings.cs" />
     <None Include="IModelService.cs" />
-    <None Include="ModelRepository.cs" />
+    <None Include="ModelBlo.cs" />
+    <None Include="ModelBlo.Listings.cs" />
+    <None Include="ModelController.cs" />
+    <None Include="ModelDao.cs" />
+    <None Include="ModelDao.Listings.cs" />
+    <None Include="ModelDao.Querys.cs" />
+    <None Include="ModelSearchFilter.cs" />
     <None Include="ModelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

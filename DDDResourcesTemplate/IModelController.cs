@@ -1,49 +1,47 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Business.Core.Services;
-using $BuisnessNamespace$.$basename$;
-using $SearchFiltersNamespace$;
+﻿using $SearchFiltersNamespace$;
 using $DataTransferObjectsNamespace$;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-namespace $ServiceNamespace$.$basename$s
+namespace $ControllerNamespace$.$basename$s
 {
-    public interface I$basename$Service : IBaseService<I$basename$Blo>
+    public interface I$basename$Controller
     {
         /// <summary>
         /// Gets a list of $basename$s
         /// </summary>
         /// <param name="searchFilter">Filtering and ordering restrictions</param>
         /// <returns>A list of $basename$s</returns>
-        IEnumerable<$basename$Dto> Get($basename$SearchFilter searchFilter);
+        IActionResult Get([FromQuery] $basename$SearchFilter searchFilter);
 
         /// <summary>
         /// Updates a $basename$ with the specified information
         /// </summary>
+        /// <param name="id">$basename$ unique identifier</param>
         /// <param name="dto">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        void Update($basename$Dto dto, IFormFile file);
+        IActionResult Update(int id, $basename$Dto dto, IFormFile file);
 
         /// <summary>
         /// Creates a new $basename$ 
         /// </summary>
-        /// <param name="dto">The new entity description object</param>
+        /// <param name="caseDto">The new entity description object</param>
         /// <returns>The newly created $basename$</returns>  
-        $basename$Dto Create($basename$Dto dto, IFormFile file);
+        IActionResult Create($basename$Dto dto, IFormFile file);
 
         /// <summary>
         /// Gets an $basename$ by it's unique identifier
         /// </summary>
         /// <param name="id">The $basename$ unique identifier</param>
         /// <returns>$basename$ with the specified unique identifier</returns>
-        $basename$Dto GetById(int id);
+        IActionResult GetById(int id);
 
         /// <summary>
-        /// Export $basename$
+        /// Export $basename$ Details 
         /// </summary>
         /// <param name="searchFilter"></param>
         /// <param name="mediaTypeName"></param>
-        /// <returns>The csv file with a list of <see cref="Product"/> instances</returns>    
-        Stream Export($basename$SearchFilter searchFilter, string mediaTypeName);
+        /// <returns>The csv file with a list of <see cref="$basename$"/> instances</returns>  
+        IActionResult Export([FromQuery] $basename$SearchFilter searchFilter, [FromHeader(Name = "Content-Type")] string mediaTypeName);
     }
 }

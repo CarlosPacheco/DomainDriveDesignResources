@@ -13,10 +13,20 @@
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
-    <ProjectItem TargetFileName="$basename$.cs" ReplaceParameters="true" >DomainModel.cs</ProjectItem>
-    <ProjectItem SubType="Code" TargetFileName="I$basename$Repository.cs" ReplaceParameters="true">IModelRepository.cs</ProjectItem>
-    <ProjectItem SubType="Code" TargetFileName="$basename$Repository.cs" ReplaceParameters="true">ModelRepository.cs</ProjectItem>
+    <ProjectItem TargetFileName="$basename$.cs" ReplaceParameters="true" >EntityModel.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$SearchFilter.cs" ReplaceParameters="true">ModelSearchFilter.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Controller.cs" ReplaceParameters="true">ModelController.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="I$basename$Controller.cs" ReplaceParameters="true">IModelController.cs</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="$basename$Service.cs" ReplaceParameters="true">ModelService.cs</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="I$basename$Service.cs" ReplaceParameters="true">IModelService.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="I$basename$Blo.cs" ReplaceParameters="true">IModelBlo.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="I$basename$Blo.Listings.cs" ReplaceParameters="true">IModelBlo.Listings.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Blo.cs" ReplaceParameters="true">ModelBlo.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Blo.Listings.cs" ReplaceParameters="true">ModelBlo.Listings.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="I$basename$Dao.cs" ReplaceParameters="true">IModelDao.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="I$basename$Dao.Listings.cs" ReplaceParameters="true">IModelDao.Listings.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Dao.cs" ReplaceParameters="true">ModelDao.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Dao.Listings.cs" ReplaceParameters="true">ModelDao.Listings.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Dao.Querys.cs" ReplaceParameters="true">ModelDao.Querys.cs</ProjectItem>
   </TemplateContent>
 </VSTemplate>
