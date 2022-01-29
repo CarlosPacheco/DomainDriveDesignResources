@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Business.Core.Data;
+using $DataInterfacesNamespace$;
 using $SearchFiltersNamespace$;
 using $EntityModelNamespace$;
 using CrossCutting.Exceptions;
@@ -10,7 +11,7 @@ using CrossCutting.SearchFilters.DataAccess;
 using Dapper;
 using Serilog;
 
-namespace $DataNamespace$.$basename$s
+namespace $DataNamespace$
 {
     public partial class $basename$Dao : BaseDao, I$basename$Dao
     {

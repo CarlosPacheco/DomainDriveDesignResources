@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DDDResourcesWizard
+namespace DomainDriveDesignResourcesVSIX
 {
     public partial class OptionsForm : Form
     {
@@ -114,7 +114,12 @@ namespace DDDResourcesWizard
 
         protected override void OnLoad(EventArgs e)
         {
-            ControllersProject.DataSource = ApplicationProject.DataSource = DataTransferObjectsProject.DataSource = BusinessProject.DataSource = EntitiesProject.DataSource = DataProject.DataSource = _projectList.ToList();
+            ControllersProject.DataSource = _projectList.ToList(); 
+            ApplicationProject.DataSource = _projectList.ToList(); 
+            DataTransferObjectsProject.DataSource = _projectList.ToList(); 
+            BusinessProject.DataSource = _projectList.ToList();
+            EntitiesProject.DataSource = _projectList.ToList(); 
+            DataProject.DataSource = _projectList.ToList();
 
             ControllersProject.SelectedItem = _projectList.FirstOrDefault(it => it.Contains("Core"));
             ApplicationProject.SelectedItem = _projectList.FirstOrDefault(it => it.Contains("Application"));

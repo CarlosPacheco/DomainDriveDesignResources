@@ -2,16 +2,16 @@
 using System.IO;
 using System.Linq;
 using Business.Core;
-using $BuisnessNamespace$.MultimediaFiles;
+using Business.LogicObjects.MultimediaFiles;
 using $SearchFiltersNamespace$;
 using $EntityModelNamespace$;
 using CrossCutting.Helpers.Helpers;
 using CrossCutting.Security.Identity;
 using Dapper;
-using $DataNamespace$;
+using $DataInterfacesNamespace$;
 using Serilog;
 
-namespace $BuisnessNamespace$.$basename$s
+namespace $BuisnessNamespace$
 {
     public partial class $basename$Blo : BaseBlo<I$basename$Dao>, I$basename$Blo
     {

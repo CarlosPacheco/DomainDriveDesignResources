@@ -2,7 +2,7 @@
 using System.IO;
 using AutoMapper;
 using Business.Core.Services;
-using $BuisnessNamespace$.$basename$;
+using $BuisnessNamespace$;
 using $SearchFiltersNamespace$;
 using $DataTransferObjectsNamespace$;
 using CrossCutting.SearchFilters.Extensions;
@@ -10,7 +10,7 @@ using CrossCutting.Security.Identity;
 using Microsoft.AspNetCore.Http;
 using $EntityModelNamespace$;
 
-namespace $ServiceNamespace$.$basename$s
+namespace $ServiceNamespace$
 {
     public class $basename$Service : BaseService<I$basename$Blo>, I$basename$Service
     {
@@ -59,7 +59,7 @@ namespace $ServiceNamespace$.$basename$s
         /// </summary>
         /// <param name="id">The $basename$  unique identifier</param>
         /// <returns>$basename$  with the specified unique identifier</returns>
-        public $basename$ Dto GetById(int id)
+        public $basename$Dto GetById(int id)
         {
             $basename$Dto dto = Mapper.Map<$basename$Dto>(BusinessLogic.GetById(id));
 

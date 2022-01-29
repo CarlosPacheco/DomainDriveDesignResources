@@ -2,7 +2,7 @@
 using Dapper;
 using $EntityModelNamespace$;
 
-namespace $DataNamespace$.$basename$s
+namespace $DataNamespace$
 {
     public partial class $basename$Dao
     {

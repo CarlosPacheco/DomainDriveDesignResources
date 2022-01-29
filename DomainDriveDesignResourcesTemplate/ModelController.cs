@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mime;
-using $ServiceNamespace$.$basename$;
+using $ServiceNamespace$;
 using $SearchFiltersNamespace$;
 using $DataTransferObjectsNamespace$;
 using CrossCutting.Web.Controllers;
@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
-namespace $ControllerNamespace$.$basename$s
+namespace $ControllerNamespace$
 {
     [Route("api/[controller]")]
     public class $basename$Controller : BaseApiController, I$basename$Controller

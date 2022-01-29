@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DDDResourcesWizard")]
+[assembly: AssemblyTitle("DomainDriveDesignResourcesTemplate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DDDResourcesWizard")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCompany("Carlos Pacheco")]
+[assembly: AssemblyProduct("DomainDriveDesignResourcesTemplate")]
+[assembly: AssemblyCopyright("Copyright © Carlos Pacheco 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -18,6 +18,9 @@ using System.Runtime.InteropServices;
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("c9bc6293-c538-480c-b9e0-7b35b0704a0e")]
 
 // Version information for an assembly consists of the following four values:
 //

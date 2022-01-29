@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{E6A69E58-93BB-4CAE-B83F-4CBF3416A578}</ProjectGuid>
+    <ProjectGuid>{C9BC6293-C538-480C-B9E0-7B35B0704A0E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DDDResourcesTemplate</RootNamespace>
-    <AssemblyName>DDDResourcesTemplate</AssemblyName>
+    <RootNamespace>DomainDriveDesignResourcesTemplate</RootNamespace>
+    <AssemblyName>DomainDriveDesignResourcesTemplate</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
@@ -46,12 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.CoreUtility">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ModelService.cs" />
     <None Include="EntityModel.cs" />
     <None Include="IModelBlo.cs" />
     <None Include="IModelBlo.Listings.cs" />
@@ -66,14 +69,14 @@
     <None Include="ModelDao.Listings.cs" />
     <None Include="ModelDao.Querys.cs" />
     <None Include="ModelSearchFilter.cs" />
-    <None Include="ModelService.cs" />
+    <None Include="ModelDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DDDResourcesTemplate.ico" />
+    <None Include="DomainDriveDesignResourcesTemplate.ico" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="DDDResourcesTemplate.vstemplate" />
+    <VSTemplate Include="DomainDriveDesignResourcesTemplate.vstemplate" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

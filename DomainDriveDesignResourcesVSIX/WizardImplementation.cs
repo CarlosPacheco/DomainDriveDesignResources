@@ -6,7 +6,7 @@ using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TemplateWizard;
 
-namespace DDDResourcesWizard
+namespace DomainDriveDesignResourcesVSIX
 {
     public enum LayerName
     {
@@ -48,7 +48,7 @@ namespace DDDResourcesWizard
         }
     }
 
-    public class TemplatePreProcessor : IWizard
+    public class WizardImplementation : IWizard
     {
         #region Fields
         IDictionary<LayerName, Layer> layers = new Dictionary<LayerName, Layer>();
@@ -58,7 +58,7 @@ namespace DDDResourcesWizard
 
         #region Ctor
 
-        public TemplatePreProcessor()
+        public WizardImplementation()
         {
             _dte = (DTE)Package.GetGlobalService(typeof(DTE));
         }
@@ -67,6 +67,8 @@ namespace DDDResourcesWizard
 
         #region IWizard Methods
 
+        // This method is only called for item templates,
+        // not for project templates.
         public void ProjectItemFinishedGenerating(ProjectItem projectItem)
         {
             string itemName = Path.GetFileNameWithoutExtension(projectItem.Name);
@@ -89,7 +91,8 @@ namespace DDDResourcesWizard
                 }
             }
 
-            selectedLayer.Project.AddToFolder(projectItem, selectedLayer.Folders);
+            if(selectedLayer != null)
+                selectedLayer.Project.AddToFolder(projectItem, selectedLayer.Folders);
 
             projectItem?.Remove();
             projectItem?.Delete();
@@ -118,11 +121,15 @@ namespace DDDResourcesWizard
             SetParameters(replacementsDictionary);
         }
 
+        // This method is only called for item templates,
+        // not for project templates.
         public bool ShouldAddProjectItem(string filePath)
         {
             return true;
         }
 
+        // This method is called before opening any item that
+        // has the OpenInEditor attribute.
         public void BeforeOpeningFile(ProjectItem projectItem)
         {
         }
@@ -131,6 +138,7 @@ namespace DDDResourcesWizard
         {
         }
 
+        // This method is called after the project is created.
         public void RunFinished()
         {
         }

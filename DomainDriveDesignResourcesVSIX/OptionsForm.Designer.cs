@@ -1,4 +1,4 @@
-﻿namespace DDDResourcesWizard
+﻿namespace DomainDriveDesignResourcesVSIX
 {
     partial class OptionsForm
     {

@@ -2,7 +2,7 @@
 using $SearchFiltersNamespace$;
 using $EntityModelNamespace$;
 
-namespace $BuisnessNamespace$.$basename$s
+namespace $BuisnessNamespace$
 {
     public partial class $basename$Blo
     {

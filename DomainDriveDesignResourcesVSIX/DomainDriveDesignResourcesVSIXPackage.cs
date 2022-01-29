@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Shell;
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
-namespace DDDResourcesWizard
+namespace DomainDriveDesignResourcesVSIX
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -24,13 +24,13 @@ namespace DDDResourcesWizard
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(DDDResourcesWizardPackage.PackageGuidString)]
-    public sealed class DDDResourcesWizardPackage : AsyncPackage
+    [Guid(DomainDriveDesignResourcesVSIXPackage.PackageGuidString)]
+    public sealed class DomainDriveDesignResourcesVSIXPackage : AsyncPackage
     {
         /// <summary>
-        /// DDDResourcesWizardPackage GUID string.
+        /// DomainDriveDesignResourcesVSIXPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "c98dd67e-c750-4e7e-a81e-bffecd72e12e";
+        public const string PackageGuidString = "2ffd7803-3f51-4900-a2cf-d271f119ac29";
 
         #region Package Members
 
@@ -50,6 +50,6 @@ namespace DDDResourcesWizard
 
         #endregion
     }
-}
 
-// https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-use-wizards-with-project-templates?view=vs-2019
+    //https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-use-wizards-with-project-templates?view=vs-2022
+}

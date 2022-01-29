@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using $EntityModelNamespace$;
 
-namespace $BuisnessNamespace$.$basename$s
+namespace $DataInterfacesNamespace$
 {
-    public partial interface I$basename$Blo
+    public partial interface I$basename$Dao
     {
         /// <summary>
-        /// Get the listings$basename$s
+        /// Get the listings $basename$s
         /// </summary>
         /// <returns>The list of $basename$s </returns>
         IEnumerable<$basename$> Get$basename$Listing();

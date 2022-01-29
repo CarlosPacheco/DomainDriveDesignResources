@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>DDDResourcesTemplate</Name>
-    <Description>DDDResourcesTemplate</Description>
-    <Icon>DDDResourcesTemplate.ico</Icon>
+    <Name>DomainDriveDesignResourcesTemplate</Name>
+    <Description>DomainDriveDesignResourcesTemplate</Description>
+    <Icon>DomainDriveDesignResourcesTemplate.ico</Icon>
+    <TemplateID>d70be345-1d77-457b-9f32-ef912fc34faf</TemplateID>
     <ProjectType>CSharp</ProjectType>
-    <LanguageTag>csharp</LanguageTag>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
-    <SortOrder>1000</SortOrder>
-    <TemplateID>72243492-121e-45ae-8f05-cdef61ad8594</TemplateID>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
     <DefaultName>Class.cs</DefaultName>
-    <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
   <TemplateContent>
     <ProjectItem TargetFileName="$basename$.cs" ReplaceParameters="true" >EntityModel.cs</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="$basename$SearchFilter.cs" ReplaceParameters="true">ModelSearchFilter.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$basename$Dto.cs" ReplaceParameters="true">ModelDto.cs</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="$basename$Controller.cs" ReplaceParameters="true">ModelController.cs</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="I$basename$Controller.cs" ReplaceParameters="true">IModelController.cs</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="$basename$Service.cs" ReplaceParameters="true">ModelService.cs</ProjectItem>
@@ -29,4 +28,8 @@
     <ProjectItem SubType="Code" TargetFileName="$basename$Dao.Listings.cs" ReplaceParameters="true">ModelDao.Listings.cs</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="$basename$Dao.Querys.cs" ReplaceParameters="true">ModelDao.Querys.cs</ProjectItem>
   </TemplateContent>
+  <WizardExtension>
+    <Assembly>DomainDriveDesignResourcesVSIX, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=05e80e536ed82b60</Assembly>
+    <FullClassName>DomainDriveDesignResourcesVSIX.WizardImplementation</FullClassName>
+  </WizardExtension>
 </VSTemplate>

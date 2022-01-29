@@ -2,7 +2,7 @@
 using EnvDTE;
 using EnvDTE80;
 
-namespace DDDResourcesWizard
+namespace DomainDriveDesignResourcesVSIX
 {
     public static class DteExtentions
     {
