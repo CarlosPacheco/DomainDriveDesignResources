@@ -22,7 +22,7 @@ namespace $BuisnessNamespace$
         /// </summary>
         /// <param name="authorization">Security information access object to be used by this instance</param>
         /// <param name="dataAccess">Application Request's data access object to be used by this instance</param>
-        public $basename$Blo($basename$Dao dataAccess, IAuthorization authorization, ILogger logger, IMultimediaBlo multimediaBLO) : base(dataAccess, authorization, logger)
+        public $basename$Blo(I$basename$Dao dataAccess, IAuthorization authorization, ILogger logger, IMultimediaBlo multimediaBLO) : base(dataAccess, authorization, logger)
         {
             MultimediaBLO = multimediaBLO;
         }
@@ -76,11 +76,11 @@ namespace $BuisnessNamespace$
         public Stream Export($basename$SearchFilter searchFilter, string mediaTypeName)
         {
             IList<dynamic> fileData = DataAccess.Get(searchFilter)
-              .Select((Product) => new
+              .Select(($basename$) => new
               {
-                  Product.Id,
-                  Product.Name,
-                  LastUpdatedOn = Product.UpdatedOn?.ToString("dd/MM/yyyy hh:mm")
+                  $basename$.Id,
+                  $basename$.Name,
+                  LastUpdatedOn = $basename$.UpdatedOn?.ToString("dd/MM/yyyy hh:mm")
               }).AsList<dynamic>();
 
             //if (mediaTypeName == MediaType.Application.Csv)

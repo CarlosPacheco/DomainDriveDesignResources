@@ -5,7 +5,8 @@
     <Description>DomainDriveDesignResourcesTemplate</Description>
     <Icon>DomainDriveDesignResourcesTemplate.ico</Icon>
     <TemplateID>d70be345-1d77-457b-9f32-ef912fc34faf</TemplateID>
-    <ProjectType>CSharp</ProjectType>
+    <ProjectType>csharp</ProjectType>
+    <LanguageTag>csharp</LanguageTag>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
     <DefaultName>Class.cs</DefaultName>

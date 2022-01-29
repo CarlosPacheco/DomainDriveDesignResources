@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace $DataTransferObjectsNamespace$
 {
     [ModelBinder(typeof(JsonFormDataModelBinder))]
-    public class ProductDto : MapFrom<Product>
-    {
+    public class $basename$Dto : MapFrom<$basename$>
+{
         /// <summary>
         /// Unique identifier
         /// </summary>

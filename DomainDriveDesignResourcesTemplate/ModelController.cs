@@ -64,7 +64,7 @@ namespace $ControllerNamespace$
         /// <param name="dto">The new entity description object</param>
         /// <returns>The newly created $basename$</returns>       
         [Route("", Name = "$basename$_Create")]
-        [HttpPost, ProducesResponseType(typeof$basename$Dto), StatusCodes.Status200OK)]
+        [HttpPost, ProducesResponseType(typeof($basename$Dto), StatusCodes.Status200OK)]
         public IActionResult Create($basename$Dto dto, [FromForm] IFormFile file)
 {
             $basename$Dto newDto = _service.Create(dto, file);

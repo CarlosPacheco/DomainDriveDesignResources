@@ -17,16 +17,16 @@ namespace $DataInterfacesNamespace$
         /// <summary>
         /// Updates a $basename$ with the specified information
         /// </summary>
-        /// <param name="dto">Patch object containing the new $basename$ value</param>
+        /// <param name="entity">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        void Update($basename$ dto);
+        void Update($basename$ entity);
 
         /// <summary>
         /// Creates a new $basename$ 
         /// </summary>
-        /// <param name="dto">The new entity description object</param>
+        /// <param name="entity">The new entity description object</param>
         /// <returns>The newly created $basename$</returns>  
-        int Create($basename$ dto);
+        int Create($basename$ entity);
 
         /// <summary>
         /// Gets an $basename$ by it's unique identifier

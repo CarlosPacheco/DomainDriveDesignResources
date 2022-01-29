@@ -72,7 +72,7 @@ namespace $ServiceNamespace$
         /// <param name="searchFilter"></param>
         /// <param name="mediaTypeName"></param>
         /// <returns>The csv file with a list of <see cref="$basename$ "/> instances</returns>    
-        public Stream Export($basename$ SearchFilter searchFilter, string mediaTypeName)
+        public Stream Export($basename$SearchFilter searchFilter, string mediaTypeName)
         {
             return BusinessLogic.Export(searchFilter, mediaTypeName);
         }

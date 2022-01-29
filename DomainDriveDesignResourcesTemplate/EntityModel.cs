@@ -7,6 +7,6 @@ namespace $EntityModelNamespace$
     /// </summary>
     public class $basename$ : BaseEntity
 	{    
-
+        public string Name { get; set; }
     }
 }
