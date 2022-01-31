@@ -46,14 +46,14 @@ namespace $ControllerNamespace$
         /// <returns>The modified $basename$ object</returns>
         [Route("{id}")]
         [HttpPatch, ProducesResponseType(typeof(void), StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Update(int id, $basename$Dto dto, [FromForm] IFormFile file)
+        public IActionResult Update(int id, $basename$Dto dto)
         {
             if (dto != null && id != dto.Id)
             {
                 return BadRequest();
             }
 
-            _service.Update(dto, file);
+            _service.Update(dto);
 
             return Ok();
         }
@@ -65,9 +65,9 @@ namespace $ControllerNamespace$
         /// <returns>The newly created $basename$</returns>       
         [Route("", Name = "$basename$_Create")]
         [HttpPost, ProducesResponseType(typeof($basename$Dto), StatusCodes.Status200OK)]
-        public IActionResult Create($basename$Dto dto, [FromForm] IFormFile file)
+        public IActionResult Create($basename$Dto dto)
 {
-            $basename$Dto newDto = _service.Create(dto, file);
+            $basename$Dto newDto = _service.Create(dto);
 
             return CreatedAtRoute("$basename$_GetById", new { id = dto.Id }, newDto);
         }

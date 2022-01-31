@@ -35,7 +35,7 @@ namespace $ServiceNamespace$
         /// </summary>
         /// <param name="dto">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        public void Update($basename$Dto dto, IFormFile file)
+        public void Update($basename$Dto dto)
         {
             $basename$ entity = Mapper.Map<$basename$>(dto);
            
@@ -47,7 +47,7 @@ namespace $ServiceNamespace$
         /// </summary>
         /// <param name="dto">The new entity description object</param>
         /// <returns>The newly created $basename$</returns>  
-        public $basename$Dto Create($basename$Dto dto, IFormFile file)
+        public $basename$Dto Create($basename$Dto dto)
         {
             $basename$ entity = BusinessLogic.Create(Mapper.Map<$basename$>(dto));
 

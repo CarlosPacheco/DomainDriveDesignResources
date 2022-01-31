@@ -1,6 +1,5 @@
 ﻿using $SearchFiltersNamespace$;
 using $DataTransferObjectsNamespace$;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace $ControllerNamespace$
@@ -20,14 +19,14 @@ namespace $ControllerNamespace$
         /// <param name="id">$basename$ unique identifier</param>
         /// <param name="dto">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        IActionResult Update(int id, $basename$Dto dto, IFormFile file);
+        IActionResult Update(int id, $basename$Dto dto);
 
         /// <summary>
         /// Creates a new $basename$ 
         /// </summary>
         /// <param name="caseDto">The new entity description object</param>
         /// <returns>The newly created $basename$</returns>  
-        IActionResult Create($basename$Dto dto, IFormFile file);
+        IActionResult Create($basename$Dto dto);
 
         /// <summary>
         /// Gets an $basename$ by it's unique identifier

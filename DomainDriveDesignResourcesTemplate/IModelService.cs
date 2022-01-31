@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Business.Core.Services;
+﻿using Business.Core.Services;
 using $BuisnessNamespace$;
 using $SearchFiltersNamespace$;
 using $DataTransferObjectsNamespace$;
-using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using System.IO;
 
 namespace $ServiceNamespace$
 {
@@ -22,14 +21,14 @@ namespace $ServiceNamespace$
         /// </summary>
         /// <param name="dto">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        void Update($basename$Dto dto, IFormFile file);
+        void Update($basename$Dto dto);
 
         /// <summary>
         /// Creates a new $basename$ 
         /// </summary>
         /// <param name="dto">The new entity description object</param>
         /// <returns>The newly created $basename$</returns>  
-        $basename$Dto Create($basename$Dto dto, IFormFile file);
+        $basename$Dto Create($basename$Dto dto);
 
         /// <summary>
         /// Gets an $basename$ by it's unique identifier

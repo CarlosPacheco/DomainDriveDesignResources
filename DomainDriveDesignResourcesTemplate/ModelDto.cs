@@ -1,14 +1,11 @@
-﻿using System;
-using $EntityModelNamespace$;
-using CrossCutting.Web.Binders;
+﻿using $EntityModelNamespace$;
 using Data.TransferObjects.ObjectMapping.Mappings;
-using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace $DataTransferObjectsNamespace$
 {
-    [ModelBinder(typeof(JsonFormDataModelBinder))]
     public class $basename$Dto : MapFrom<$basename$>
-{
+    {
         /// <summary>
         /// Unique identifier
         /// </summary>
