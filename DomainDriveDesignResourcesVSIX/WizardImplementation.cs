@@ -23,9 +23,15 @@ namespace DomainDriveDesignResourcesVSIX
     public class Layer
     {
         public string Name { get; set; }
+
         public List<string> Folders { get; set; }
+
         public Project Project { get; set; }
+
         public bool CreateModelFolder { get; set; }
+
+        public bool HaveProject { get; set; }
+
         public string Namespace
         {
             get
@@ -35,16 +41,17 @@ namespace DomainDriveDesignResourcesVSIX
             }
         }
 
-        public Layer(string name, List<string> folders, Project project, bool createModelFolder = false)
+        public Layer()
+        {
+        }
+
+        public Layer(string name, List<string> folders, Project project, bool createModelFolder, bool haveProject)
         {
             Name = name;
             Folders = folders;
             Project = project;
             CreateModelFolder = createModelFolder;
-        }
-
-        public Layer()
-        {
+            HaveProject = haveProject;
         }
     }
 
@@ -76,7 +83,7 @@ namespace DomainDriveDesignResourcesVSIX
 
             foreach (Layer layer in layers.Values)
             {
-                if (layer.Project == null) continue;
+                if (layer.Project == null || !layer.HaveProject) continue;
 
                 if (itemName.Equals(layer.Name))
                 {
@@ -91,7 +98,7 @@ namespace DomainDriveDesignResourcesVSIX
                 }
             }
 
-            if(selectedLayer != null)
+            if (selectedLayer != null)
                 selectedLayer.Project.AddToFolder(projectItem, selectedLayer.Folders);
 
             projectItem?.Remove();
@@ -105,18 +112,17 @@ namespace DomainDriveDesignResourcesVSIX
             OptionsForm form = new OptionsForm(_allProjects.Select(it => it.Name));
             form.ShowDialog();
 
-            // Format the model name in case when someone typed 'eMploYeE' instead of 'Employee'
-            string _modelName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(replacementsDictionary["$safeitemname$"]);
+            string _modelName = replacementsDictionary["$safeitemname$"];
             string _modelNameFolder = _modelName + "s";
 
-            if (form.HaveControllersProject) layers.Add(LayerName.Controller, new Layer($"{_modelName}Controller", new List<string> { "Controllers", _modelNameFolder }, GetProjectByName(form.SelectedControllersProject), true));
-            if (form.HaveApplicationProject) layers.Add(LayerName.Services, new Layer($"{_modelName}Service", new List<string> { "Services", _modelNameFolder }, GetProjectByName(form.SelectedApplicationProject), true));
-            if (form.HaveBusinessProject) layers.Add(LayerName.Business, new Layer($"{_modelName}Blo", new List<string> { "LogicObjects", _modelNameFolder }, GetProjectByName(form.SelectedBusinessProject), true));
-            if (form.HaveDataProject) layers.Add(LayerName.DataInterfaces, new Layer($"I{_modelName}Dao", new List<string> { "Interfaces", "Data", "AccessObjects", _modelNameFolder }, GetProjectByName(form.SelectedBusinessProject), true));
-            if (form.HaveDataProject) layers.Add(LayerName.Data, new Layer($"{_modelName}Dao", new List<string> { _modelNameFolder }, GetProjectByName(form.SelectedDataProject), true));
-            if (form.HaveDataTransferObjectsProject) layers.Add(LayerName.DataTransferObjects, new Layer($"{_modelName}Dto", new List<string>(), GetProjectByName(form.SelectedDataTransferObjectsProject), false));
-            if (form.HaveEntitiesProject) layers.Add(LayerName.EntityModel, new Layer(_modelName, new List<string> { "Entities" }, GetProjectByName(form.SelectedEntitiesProject), false));
-            if (form.HaveEntitiesProject) layers.Add(LayerName.SearchFilters, new Layer($"{_modelName}SearchFilter", new List<string> { "SearchFilters" }, GetProjectByName(form.SelectedEntitiesProject), false));
+            layers.Add(LayerName.Controller, new Layer($"{_modelName}Controller", new List<string> { "Controllers", _modelNameFolder }, GetProjectByName(form.SelectedControllersProject), true, form.HaveControllersProject));
+            layers.Add(LayerName.Services, new Layer($"{_modelName}Service", new List<string> { "Services", _modelNameFolder }, GetProjectByName(form.SelectedApplicationProject), true, form.HaveApplicationProject));
+            layers.Add(LayerName.Business, new Layer($"{_modelName}Blo", new List<string> { "LogicObjects", _modelNameFolder }, GetProjectByName(form.SelectedBusinessProject), true, form.HaveBusinessProject));
+            layers.Add(LayerName.DataInterfaces, new Layer($"I{_modelName}Dao", new List<string> { "Interfaces", "Data", "AccessObjects", _modelNameFolder }, GetProjectByName(form.SelectedBusinessProject), true, form.HaveDataProject));
+            layers.Add(LayerName.Data, new Layer($"{_modelName}Dao", new List<string> { _modelNameFolder }, GetProjectByName(form.SelectedDataProject), true, form.HaveDataProject));
+            layers.Add(LayerName.DataTransferObjects, new Layer($"{_modelName}Dto", new List<string>(), GetProjectByName(form.SelectedDataTransferObjectsProject), false, form.HaveDataTransferObjectsProject));
+            layers.Add(LayerName.EntityModel, new Layer(_modelName, new List<string> { "Entities" }, GetProjectByName(form.SelectedEntitiesProject), false, form.HaveEntitiesProject));
+            layers.Add(LayerName.SearchFilters, new Layer($"{_modelName}SearchFilter", new List<string> { "SearchFilters" }, GetProjectByName(form.SelectedEntitiesProject), false, form.HaveEntitiesProject));
 
             SetParameters(replacementsDictionary);
         }
