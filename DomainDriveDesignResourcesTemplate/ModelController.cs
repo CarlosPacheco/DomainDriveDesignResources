@@ -41,12 +41,11 @@ namespace $ControllerNamespace$
         /// <summary>
         /// Updates a $basename$ with the specified information
         /// </summary>
-        /// <param name="id">$basename$ unique identifier</param>
         /// <param name="dto">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        [Route("{id}")]
-        [HttpPatch, ProducesResponseType(typeof(void), StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Update(int id, $basename$Dto dto)
+        [Route("")]
+        [HttpPut, ProducesResponseType(typeof(void), StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult Update($basename$Dto dto)
         {
             if (dto != null && id != dto.Id)
             {

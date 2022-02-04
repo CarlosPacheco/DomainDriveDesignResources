@@ -16,10 +16,9 @@ namespace $ControllerNamespace$
         /// <summary>
         /// Updates a $basename$ with the specified information
         /// </summary>
-        /// <param name="id">$basename$ unique identifier</param>
         /// <param name="dto">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        IActionResult Update(int id, $basename$Dto dto);
+        IActionResult Update($basename$Dto dto);
 
         /// <summary>
         /// Creates a new $basename$ 
