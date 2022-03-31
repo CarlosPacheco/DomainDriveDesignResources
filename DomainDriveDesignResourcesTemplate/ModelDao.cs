@@ -9,13 +9,13 @@ using $EntityModelNamespace$;
 using CrossCutting.Exceptions;
 using CrossCutting.SearchFilters.DataAccess;
 using Dapper;
-using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace $DataNamespace$
 {
     public partial class $basename$Dao : BaseDao, I$basename$Dao
     {
-        public $basename$Dao(ILogger logger, IDbConnection dbConnection, IPagedQueryBuilder pagedQueryBuilder) : base(logger, dbConnection, pagedQueryBuilder)
+        public $basename$Dao(ILogger<$basename$Dao> logger, IDbConnection dbConnection, IPagedQueryBuilder pagedQueryBuilder) : base(logger, dbConnection, pagedQueryBuilder)
         {
         }
 

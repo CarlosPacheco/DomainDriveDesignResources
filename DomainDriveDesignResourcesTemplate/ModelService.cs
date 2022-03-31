@@ -25,7 +25,7 @@ namespace $ServiceNamespace$
         /// <returns>A list of $basename$s</returns>
         public IEnumerable<$basename$Dto> Get($basename$SearchFilter searchFilter)
         {
-            IEnumerable<$basename$Dto > dto = Mapper.MapPaged<$basename$Dto, $basename$>(BusinessLogic.Get(searchFilter));
+            IEnumerable<$basename$Dto> dto = Mapper.MapPaged<$basename$Dto, $basename$>(BusinessLogic.Get(searchFilter));
 
             return dto;
         }

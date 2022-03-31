@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using CrossCutting.SearchFilters.DataAccess;
 using System.IO;
 using System.Net.Mime;
 using $ServiceNamespace$;
@@ -9,7 +9,7 @@ using CrossCutting.Web.Controllers;
 using CrossCutting.Web.Mime;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace $ControllerNamespace$
 {
@@ -21,7 +21,7 @@ namespace $ControllerNamespace$
         /// </summary>
         private readonly I$basename$Service _service;
 
-        public $basename$Controller(ILogger logger, I$basename$Service service) : base(logger)
+        public $basename$Controller(ILogger<$basename$Controller> logger, I$basename$Service service) : base(logger)
         {
             _service = service;
         }
@@ -31,8 +31,7 @@ namespace $ControllerNamespace$
         /// </summary>
         /// <param name="searchFilter">Filtering and ordering restrictions</param>
         /// <returns>A list of $basename$s</returns>
-        [HttpGet, ProducesResponseType(typeof(IEnumerable<$basename$Dto>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [HttpGet, ProducesResponseType(typeof(IPaginatedList<$basename$Dto>), StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Get([FromQuery] $basename$SearchFilter searchFilter)
         {
             return PagedData(_service.Get(searchFilter));
@@ -68,7 +67,7 @@ namespace $ControllerNamespace$
 {
             $basename$Dto newDto = _service.Create(dto);
 
-            return CreatedAtRoute("$basename$_GetById", new { id = dto.Id }, newDto);
+            return CreatedAtRoute("$basename$_GetById", new { id = newDto.Id }, newDto);
         }
 
         /// <summary>
@@ -77,7 +76,7 @@ namespace $ControllerNamespace$
         /// <param name="id">The $basename$ unique identifier</param>
         /// <returns>$basename$ with the specified unique identifier</returns>
         [Route("{id}", Name = "$basename$_GetById")]
-        [HttpGet, ProducesResponseType(typeof($basename$Dto), StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status404NotFound)]
+        [HttpGet, ProducesResponseType(typeof($basename$Dto), StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status204NoContent), ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetById(int id)
 {
             $basename$Dto dto = _service.GetById(id);

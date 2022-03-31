@@ -9,7 +9,8 @@ using CrossCutting.Helpers.Helpers;
 using CrossCutting.Security.Identity;
 using Dapper;
 using $DataInterfacesNamespace$;
-using Serilog;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace $BuisnessNamespace$
 {
@@ -22,7 +23,7 @@ namespace $BuisnessNamespace$
         /// </summary>
         /// <param name="authorization">Security information access object to be used by this instance</param>
         /// <param name="dataAccess">Application Request's data access object to be used by this instance</param>
-        public $basename$Blo(I$basename$Dao dataAccess, IAuthorization authorization, ILogger logger, IMultimediaBlo multimediaBLO) : base(dataAccess, authorization, logger)
+        public $basename$Blo(I$basename$Dao dataAccess, IAuthorization authorization, ILogger<$basename$Blo> logger, IMultimediaBlo multimediaBLO) : base(dataAccess, authorization, logger)
         {
             MultimediaBLO = multimediaBLO;
         }
@@ -40,21 +41,24 @@ namespace $BuisnessNamespace$
         /// <summary>
         /// Updates a $basename$ with the specified information
         /// </summary>
-        /// <param name="dto">Patch object containing the new $basename$ value</param>
+        /// <param name="entity">Patch object containing the new $basename$ value</param>
         /// <returns>The modified $basename$ object</returns>
-        public void Update($basename$ dto)
+        public void Update($basename$ entity)
         {
-            DataAccess.Update(dto);
+            entity.UpdatedBy = Authorization.UserName;
+            entity.UpdatedOn = DateTime.UtcNow;
+            DataAccess.Update(entity);
         }
 
         /// <summary>
         /// Creates a new $basename$ 
         /// </summary>
-        /// <param name="dto">The new entity description object</param>
+        /// <param name="entity">The new entity description object</param>
         /// <returns>The newly created $basename$</returns>  
-        public $basename$ Create($basename$ dto)
+        public $basename$ Create($basename$ entity)
         {
-            return GetById(DataAccess.Create(dto));
+            entity.CreatedBy = Authorization.UserName;
+            return GetById(DataAccess.Create(entity));
         }
 
         /// <summary>
