@@ -66,7 +66,7 @@ namespace $BuisnessNamespace$
         /// </summary>
         /// <param name="id">The $basename$ unique identifier</param>
         /// <returns>$basename$ with the specified unique identifier</returns>
-        public $basename$ GetById(int id)
+        public $basename$? GetById(int id)
         {
             return DataAccess.GetById(id);
         }

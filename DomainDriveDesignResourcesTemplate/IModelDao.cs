@@ -33,6 +33,6 @@ namespace $DataInterfacesNamespace$
         /// </summary>
         /// <param name="id">The $basename$ unique identifier</param>
         /// <returns>$basename$ with the specified unique identifier</returns>
-        $basename$ GetById(int id);
+        $basename$? GetById(int id);
     }
 }

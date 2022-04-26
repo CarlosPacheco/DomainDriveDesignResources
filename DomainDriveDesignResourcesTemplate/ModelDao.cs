@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Business.Core.Data;
+using Business.Core.Data.Interfaces;
 using $DataInterfacesNamespace$;
 using $SearchFiltersNamespace$;
 using $EntityModelNamespace$;
@@ -15,7 +16,7 @@ namespace $DataNamespace$
 {
     public partial class $basename$Dao : BaseDao, I$basename$Dao
     {
-        public $basename$Dao(ILogger<$basename$Dao> logger, IDbConnection dbConnection, IPagedQueryBuilder pagedQueryBuilder) : base(logger, dbConnection, pagedQueryBuilder)
+        public $basename$Dao(ILogger<$basename$Dao> logger, IDbConnection dbConnection, ITransactionManager transactionManager, IPagedQueryBuilder pagedQueryBuilder) : base(logger, dbConnection, transactionManager, pagedQueryBuilder)
         {
         }
 
@@ -118,7 +119,7 @@ namespace $DataNamespace$
         /// </summary>
         /// <param name="id">The $basename$ unique identifier</param>
         /// <returns>$basename$ with the specified unique identifier</returns>
-        public $basename$ GetById(int id)
+        public $basename$? GetById(int id)
         {
             $basename$ entity = DbConnection.Query<$basename$> (QueryGetByIdentifier, new { Id = id }, CurrentTransaction).FirstOrDefault();
 
