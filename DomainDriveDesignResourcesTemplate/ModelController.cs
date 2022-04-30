@@ -46,7 +46,7 @@ namespace $ControllerNamespace$
         [HttpPut, ProducesResponseType(typeof(void), StatusCodes.Status200OK), ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Update($basename$Dto dto)
         {
-            if (dto != null && id != dto.Id)
+            if (dto == null || dto.Id == null || dto.Id <= 0)
             {
                 return BadRequest();
             }

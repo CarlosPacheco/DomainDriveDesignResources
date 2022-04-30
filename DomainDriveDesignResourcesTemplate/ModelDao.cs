@@ -121,14 +121,7 @@ namespace $DataNamespace$
         /// <returns>$basename$ with the specified unique identifier</returns>
         public $basename$? GetById(int id)
         {
-            $basename$ entity = DbConnection.Query<$basename$> (QueryGetByIdentifier, new { Id = id }, CurrentTransaction).FirstOrDefault();
-
-            if (entity == null)
-            {
-                return null;
-            }
-
-            return entity;
+            return DbConnection.Query<$basename$> (QueryGetByIdentifier, new { Id = id }, CurrentTransaction).FirstOrDefault();
         }
 
     }
